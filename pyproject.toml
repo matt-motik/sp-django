@@ -1,15 +1,155 @@
 [project]
 name = "sp-django"
 version = "0.1.0"
-description = ""
+description = "Магазин. Учебный проект: Bootstrap + http.server"
 authors = [
     {name = "Bakirov Matvey",email = "mabakirov@gmail.com"}
 ]
-requires-python = "^3.14"
+requires-python = ">=3.12"
 dependencies = [
 ]
 
+[tool.poetry]
+packages = [{ include = "*", from = "src" }]
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+# ====================== Группы зависимостей ======================
+[dependency-groups]
+lint = [
+    "flake8 (>=7.3.0,<8.0.0)",
+    "mypy (>=2.1.0,<3.0.0)",
+    "black (>=26.3.1,<27.0.0)",
+    "isort (>=8.0.1,<9.0.0)",
+    "flake8-pyproject (>=1.2.4,<2.0.0)",
+    "pydocstyle (>=6.3.0,<7.0.0)"
+]
+dev = [
+    "pytest-cov (>=7.1.0,<8.0.0)",
+    "pytest (>=9.0.3,<10.0.0)",
+    "types-requests (>=2.33.0.20260408,<3.0.0.0)",
+]
+
+# ====================== Форматтеры ======================
+[tool.black]
+target-version = ['py314']
+line-length = 119
+exclude = '''
+(
+  /(
+      \.eggs
+    | \.git
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | dist
+  )/
+)
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 119
+# Каждый импорт на отдельной строке
+force_single_line = true
+# Пропускать виртуальное окружение
+skip = [".venv", "venv", "__pycache__"]
+# Пустые строки между секциями
+lines_between_sections = 1
+# Сортировка по алфавиту
+force_sort_within_sections = true
+multi_line_output = 3
+include_trailing_comma = true
+
+# ====================== Линтеры ======================
+[tool.flake8]
+max-line-length = 119
+extend-ignore = [
+    "E203", # whitespace before ':'
+    "W503", # line break before binary operator
+    #    "D100",  # Missing docstring in public module
+    #    "D101",  # Missing docstring in public class
+    #    "D102",  # Missing docstring in public method
+    #    "D103",  # Missing docstring in public function
+    #    "D104",  # Missing docstring in public package
+    #    "D105",  # Missing docstring in magic method
+    #    "D106",  # Missing docstring in public nested class
+    #    "D107",  # Missing docstring in __init__
+    #    "D200",  # One-line docstring should fit on one line
+    #    "D204",  # 1 blank line required after summary
+    #    "D205",  # 1 blank line required between summary and description
+    #    "D212",  # Multi-line docstring summary should start at the first line
+    #    "D213",  # Multi-line docstring summary should start at the second line
+    #    "D400",  # First line should end with a period
+    #    "D401",  # First line should be in imperative mood
+    #    "D404",  # First word of the docstring should not be "This"
+    #    "D406",  # Section name should end with a newline
+    #    "D407",  # Section name should be preceded by an empty line
+    #    "D408",  # Section name should be followed by an empty line
+    #    "D409",  # Section underline should match section length
+    #    "D410",  # Missing blank line after section
+    #    "D411",  # Missing blank line before section
+    #    "D412",  # No blank lines allowed between a section header and its content
+    #    "D413",  # Missing blank line after last section
+    #    "D414",  # Section has no content
+    #    "D415",  # First line should end with a period, question mark, or exclamation point
+    #    "D416",  # Section name should end with a colon
+]
+docstring-convention = "pep257"
+
+[tool.pydocstyle]
+convention = "pep257"
+# Добавить проверку пустых строк после первой строки
+add-select = ["D204", "D205"]
+# Игнорировать отсутствие docstring в модулях/классах/функциях
+#add-ignore = [
+#    "D100", "D101", "D102", "D103", "D104", "D105", "D106", "D107"
+#]
+match = ".*\\.py"
+match-dir = "src"
+
+# ====================== Типизация ======================
+[tool.mypy]
+python_version = "3.14"
+ignore_missing_imports = true
+disallow_untyped_defs = true
+no_implicit_optional = true
+warn_return_any = true
+exclude = ["^.venv/", "^venv/", "__pycache__", "tests/"]
+
+# ====================== Тесты ======================
+[tool.pytest.ini_options]
+# Папка, где лежат тесты (обычно "tests")
+testpaths = ["tests"]
+# Шаблон имён тестовых файлов
+python_files = "test_*.py"
+# Автоматически запускать coverage при каждом вызове pytest
+#addopts = "--cov=src --cov-report=term-missing --cov-report=html"
+#addopts = "-v --cov=src --cov-report=html --cov-report=term"
+pythonpath = ["src"]
+
+
+[tool.coverage.run]
+source = ["src"]
+
+# Что исключить из проверки покрытия
+omit = [
+    "*/tests/*",
+    "*/test_*.py",
+    "*/__pycache__/*",
+    "*/venv/*",
+    "*/site-packages/*"
+]
+
+[tool.coverage.report]
+# Исключить из отчёта тестовые файлы
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if __name__ == .__main__.:",
+    "pass",
+]
