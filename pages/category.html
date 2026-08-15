@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Главная</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/static/css/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .sidebar {
+            width: 260px;
+        }
+
+        .card-narrow {
+            max-width: 300px;
+            width: 100%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body class="bg-light d-flex flex-row" style="height: 100vh; overflow: hidden;">
+<!-- Боковое меню -->
+<aside class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-dark text-white" style="height: 100vh; overflow: hidden;">
+    <header class="d-flex align-items-center gap-2 pb-3 mb-3 border-bottom border-secondary flex-shrink-0">
+            <span class="bg-white text-dark fs-5 px-2 rounded-2">
+                <i class="bi bi-bootstrap-fill"></i>
+            </span>
+        <span class="fs-5 fw-semibold">Меню</span>
+    </header>
+
+    <nav class="nav nav-pills flex-column gap-2">
+        <a class="nav-link text-white" href="index.html">
+            <i class="bi bi-house-door me-2"></i>Главная
+        </a>
+        <a class="nav-link text-white" href="category.html">
+            <i class="bi bi-speedometer2 me-2"></i>Категории
+        </a>
+        <a class="nav-link text-white" href="catalog.html">
+            <i class="bi bi-table me-2"></i>Заказы
+        </a>
+        <a class="nav-link text-white" href="contacts.html">
+            <i class="bi bi-person-circle me-2"></i>Контакты
+        </a>
+    </nav>
+
+    <div class="dropdown dropup mt-auto pt-3 border-top border-secondary w-100 flex-shrink-0">
+        <a href="#" class="d-flex align-items-center gap-2 text-white text-decoration-none dropdown-toggle"
+           data-bs-toggle="dropdown">
+            <img src="https://i.oneme.ru/i?r=BUGhUou04b028GIQiF8sPj1EYpJGhZ3zpe8NxNagtGhid-OmpoZHn7tW5XQ1cAvNpbKmAPQmAQHhzvFZfJvBVU4l&fn=sqr_176"
+                 alt="" width="32" height="32" class="rounded-circle">
+            <strong>Пользователь</strong>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" href="#">Профиль</a></li>
+            <li><a class="dropdown-item" href="#">Выход</a></li>
+        </ul>
+    </div>
+</aside>
+<!-- правая сторона -->
+<div class="d-flex flex-column flex-grow-1 align-items-center" style="overflow-y: auto;">
+    <!-- Шапка/баннер -->
+    <header class="border-bottom w-100 text-center py-3 bg-light">
+        <h5 class="mb-0">Место для баннера</h5>
+    </header>
+    <!-- Основной контент -->
+    <main class="container flex-grow-1">
+        <div class=" p-4 p-md-5">
+            <h1 class="display-4 text-center my-4">Категории</h1>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5 ">
+                <div class="col">
+                    <div class="card shadow-sm text-center h-100 card-narrow">
+                        <div class="card-header">Товар 1</div>
+                        <div class="card-body">
+                            <div class="fs-1 fw-bold my-3">$ 100</div>
+                            <p class="card-text">10 users included, 2 GB of storage, Email support, Help center
+                                access</p>
+                            <button type="button" class="btn btn-outline-primary w-100">Купить</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow-sm text-center h-100 card-narrow">
+                        <div class="card-header">Товар 1</div>
+                        <div class="card-body">
+                            <div class="fs-1 fw-bold my-3">$ 100</div>
+                            <p class="card-text">10 users included, 2 GB of storage, Email support, Help center
+                                access</p>
+                            <button type="button" class="btn btn-outline-primary w-100">Купить</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow-sm text-center h-100 card-narrow">
+                        <div class="card-header">Товар 1</div>
+                        <div class="card-body">
+                            <div class="fs-1 fw-bold my-3">$ 100</div>
+                            <p class="card-text">10 users included, 2 GB of storage, Email support, Help center
+                                access</p>
+                            <button type="button" class="btn btn-outline-primary w-100">Купить</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow-sm text-center h-100 card-narrow">
+                        <div class="card-header">Товар 1</div>
+                        <div class="card-body">
+                            <div class="fs-1 fw-bold my-3">$ 100</div>
+                            <p class="card-text">10 users included, 2 GB of storage, Email support, Help center
+                                access</p>
+                            <button type="button" class="btn btn-outline-primary w-100">Купить</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow-sm text-center h-100 card-narrow">
+                        <div class="card-header">Товар 1</div>
+                        <div class="card-body">
+                            <div class="fs-1 fw-bold my-3">$ 100</div>
+                            <p class="card-text">10 users included, 2 GB of storage, Email support, Help center
+                                access</p>
+                            <button type="button" class="btn btn-outline-primary w-100">Купить</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow-sm text-center h-100 card-narrow">
+                        <div class="card-header">Товар 1</div>
+                        <div class="card-body">
+                            <div class="fs-1 fw-bold my-3">$ 100</div>
+                            <p class="card-text">10 users included, 2 GB of storage, Email support, Help center
+                                access</p>
+                            <button type="button" class="btn btn-outline-primary w-100">Купить</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="py-3 border-top text-center text-secondary small w-100 mt-auto">
+        © 2026 Магазин. Учебный проект: Bootstrap + http.server
+    </footer>
+</div>
+<script src="/static/js/bootstrap.bundle.min.js"></script>
+<script src="/static/js/navigation.js"></script>
+</body>
+</html>
